@@ -35,6 +35,8 @@ with fitz.open(pdf_path) as pdf:
 		
 		financialsRegExTrigger = re.compile('statements of[ ]?(?:revenue|expenditure|change in fund balance)',re.IGNORECASE)
 
+		taxRegExTrigger = re.compile("(statement[s]?|schedule)[ ]?of[ ]?(net[ ]?assets|cash[ ]?activities|governmental[ ]?fund[ ]?|balance sheet)",re.IGNORECASE)
+
 		if financialsRegExTrigger.search(pdf_page_string):
 			print("-----" + str(page_number) + "-----")
 			print(pdf_page_string)
